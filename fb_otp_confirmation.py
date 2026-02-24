@@ -1,18 +1,10 @@
-# OTP Confirmation
-
-# other import statements...
-
-
 def validate_otp(otp_code):
-    # Change length check from 6 to 5
-    return len(otp_code) == 5
+    if len(otp_code) < 5:
+        return "Invalid OTP. Please enter a 5 digit OTP."
+    # ... Additional validation logic ...
+    return "OTP is valid."
 
-
-def prompt_for_otp():
-    otp_code = input("Kode Verifikasi (5 digit): ")  # Update prompt message
-    if not validate_otp(otp_code):
-        print("OTP is not valid!")
-        return None
-    return otp_code
-
-# other code in the file...
+# Example prompt
+otp_code = input("Please enter your OTP (5 digit): ")
+validation_result = validate_otp(otp_code)
+print(validation_result)
